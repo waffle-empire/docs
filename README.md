@@ -216,3 +216,33 @@ const auto& data = exClass->GetData();
 // 3.
 auto* pTimer = new TimerClass();
 ```
+    
+### Declarations
+Use Using over typedef!  
+Example:
+```c++
+// bad example
+typedef int my_int;
+
+// good example
+using my_float = float;
+```
+
+Nested Namespaces  
+Example:
+```c++
+// bad example
+namespace A
+{
+	namespace B {}
+}
+
+// good example
+namespace A::B {}
+```
+
+### overriding methods
+1. Use `virtual` in Base classes
+2. Use `virtual` and `Override` in Derived classes
+3. Use `virtual` and `= 0` for an abstract(instantiable) class
+4. Always make destructors `Virtual`
