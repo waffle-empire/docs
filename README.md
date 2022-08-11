@@ -116,6 +116,11 @@ ExNamespace::ExClass::ExMethod()
         break;
     }
     }
+    
+    do
+    {
+        // do stuff
+    } while (true);
 }
 ```
 ### **Guarding if statements**  
