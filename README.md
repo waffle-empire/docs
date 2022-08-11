@@ -16,12 +16,14 @@ Body (optional) can provide additional contextual information. For breaking chan
 
 Footer (optional) is used to reference issues effected bt the code changes. For example "Fixes #13". Can also be used to indicate breaking changes by starting with "BREAKING CHANGE".
 #### Structure
+
+
 ```
-Type (scope): Subject of the commit
+<type>(scope): <description>
 
-Body (optional)
+[optional body]
 
-Footer (optional)
+[optional footer]
 ```
 
 #### Examples
