@@ -201,3 +201,18 @@ ExClass::ExClass()
     {
     }
 ```
+
+### use of auto
+1. Not for numeric types: `int, bool, char, float, ...`
+2. When methods return a value
+3. Only when r-value type is evident
+4. Prefer using `auto&` to avoid copies, or `auto*` for pointer
+```c++
+// 1.
+int a{ 0 };        
+float b{ 0.5f };
+// 2.
+const auto& data = exClass->GetData();
+// 3.
+auto* pTimer = new TimerClass();
+```
