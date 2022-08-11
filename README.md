@@ -245,4 +245,4 @@ namespace A::B {}
 1. Use `virtual` in Base classes
 2. Use `virtual` and `Override` in Derived classes
 3. Use `virtual` and `= 0` for an abstract(instantiable) class
-4. Always make destructors `Virtual`
+4. Always make destructors `virtual`
