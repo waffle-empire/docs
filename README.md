@@ -31,64 +31,90 @@ Footer (optional) is used to reference issues effected bt the code changes. For 
 - `docs(readme): document coding conventions`
 
 
-### C++ Class example
-```cpp
-#include "common.hpp"
+# C++ Coding Standards Blue Waffle Empire
+## Naming Style
 
-#include <vector> 
-                      // external includes always with angled brackets
-namespace Exmpl
+| Entities | Naming | Preview |
+| ----------- | ----------- | ---------- |
+| NameSpaces | UpperCamelCase | namespace `ExNamespace` |
+| Classes and Structs | UpperCamelCase | Class `ExClass` |
+| Enums | UpperCamelCase | Enum `ExEnum` |
+| Enum Members | ALL_UPPER | ExNum::`NONE`; ExNum::`FIRST_HALF`; ...
+| Global Variables| gUpperCamelCase | bool `gRunning` |
+| Macros | ALL_UPPER | #define `USE_OPENGL` |
+| Template Parameter | UpperCamelCase | Template<`class T`> |
+| Parameters | lowerCamelCase / pUpperCamelCase | ExMethod(int `number`, int* `pNumber`) |
+| Local Variables | lowerCamelCase / pUpperCamelCase | {int `number{}`;<br> int* `pNumber`{ new int{}}} |
+| Member Variables | m_ / m_p / m_v + UpperCamelCase | int `m_Number`;<br> int* `m_pNumber`;<br> std::vector<int> `m_vNumbers`; |
+| Member Methods | UpperCamelCase | void `ExMethod`(int param1, int param2); |
+
+<br><br><br>
+
+## Formatting Style
+### &ensp; **Indents**
+prefer Tabs for indents
+
+### &ensp; **Braces**  
+
+With `if` statenebts and `for` loops we drop the brackets if it only has to execute 1 line of code or if it calls a method
+```c++
+if (true)
+    ExecuteMethod();
+
+int num;
+if (true)
+    num += 5;
+
+for (;;)
+    ExecuteMethod();
+
+for (;;)
+    num += 5;
+```
+
+
+Example for namespaces, classes, etc...
+```c++
+namespace ExNamespace
 {
-  using byte = unsigned char;
-  enum class ExampleEnum      
-  {                  // prefer enum class over enum! unless you need the regular enum functionality
-    NONE,
-    DEFAULT,
-    SECOND,
-    THIRD
-  };
-
-  class Network final
-  {
-  public:
-                // all these methods should be put in the .cpp file
-
-    Network()                // initialize all member variables
-      : m_Length(4)
-      , m_pData(new byte[64])
-      , m_ThreadCount(8)
-      , m_Type(eExampleEnum::DEFAULT)
+    class ExClass
     {
+    public:
+        ExClass()
+        {
+        }
 
+        ExMethod();
+
+        GetNum() const 
+        {
+            return m_Num;
+        }
+    private:
+        int m_Num;
     }
+}
 
-    ~Network()
+ExNamespace::ExClass::ExMethod()
+{
+    auto lambda = []()
     {
-      delete[] m_pData;
-    }
+        int x = 0;
+        return x;
+    };
 
-    [[nodiscard]] std::vector<byte> GetCollectedData() // only use [[nodiscard]] on long and heavy methods, or methods that return a copy of a big data type
+    switch (expression)
     {
-        // do a lot of calcs here
-    }
-
-    byte* Data() const  // getters and setters can stay in .hpp file
+    case 0:
     {
-      return m_pData;
+        // do stuff
+        break;
     }
-
-    void SetType(ExampleEnum newType)
+    case 1:
     {
-      m_Type = newType;
+        // do stuff
+        break;
     }
-   private:
-     int m_Length;   // use m_ prefix for member variables + UpperCamelCase
-     byte* m_pData;  // use m_p prefix for pointer member variables + UpperCamelCase
-    
-     std::vector<byte> m_vCollectedData;   // optionally can use m_v prefix for arrays/lists/vectors + UpperCamelCase
-
-    std::uint32_t m_ThreadCount;
-    ExampleEnum m_Type;
-  }
+    }
 }
 ```
