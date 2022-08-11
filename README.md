@@ -118,3 +118,52 @@ ExNamespace::ExClass::ExMethod()
     }
 }
 ```
+### **Guarding if statements**  
+
+Prefer using guarding `if` statements for readability
+
+Bad Example:
+```c++ 
+void Method()
+{
+    bool val1 = true;
+    bool val2 = false;
+    bool val3 = true;
+
+    if(val1)
+    {
+        if(val2)
+        {
+        }
+        else 
+        {
+            if(val3)
+            {
+                // code part
+                // where tf are we at
+            }
+        }
+    }
+}
+```
+
+Guarded if Example:
+```c++
+void Method()
+{
+    bool val1 = true;
+    bool val2 = false;
+    bool val3 = true;
+
+    if(!val1)
+        return;
+
+    if (val2)
+        return;
+
+    if (!val3)
+        return;
+
+    // here comes the code part
+}
+```
