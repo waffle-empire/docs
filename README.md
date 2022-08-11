@@ -1,4 +1,4 @@
-# docs
+# Getting started
 
 ### Commit convention
 Types:
