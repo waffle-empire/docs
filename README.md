@@ -51,10 +51,10 @@ Footer (optional) is used to reference issues effected bt the code changes. For 
 <br><br><br>
 
 ## Formatting Style
-### &ensp; **Indents**
+### **Indents**
 prefer Tabs for indents
 
-### &ensp; **Braces**  
+### **Braces**  
 
 With `if` statenebts and `for` loops we drop the brackets if it only has to execute 1 line of code or if it calls a method
 ```c++
