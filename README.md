@@ -172,3 +172,32 @@ void Method()
     // here comes the code part
 }
 ```
+
+### **Member variables in classes**
+
+1. Seperate every variable to a single line
+2. Initialize all member variables
+3. Use the same order of initialization as in the header file
+4. Order data types from big to low 
+
+```c++
+// Header File
+class ExClass
+{
+public:
+    ExClass();
+
+private:
+    float m_Length;
+    int m_Number;
+    bool m_Enabled;
+}
+
+// Cpp File
+ExClass::ExClass()
+    : m_Length{ 1.f }
+    , m_Number{ 5 }
+    , m_Enabled { true }
+    {
+    }
+```
