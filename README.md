@@ -35,7 +35,7 @@ Footer (optional) is used to reference issues effected bt the code changes. For 
 ## Naming Style
 
 Avoid Hun-garian notation. 
-This means, we never want to use varaible names that contain the type.
+This means, we never want to use variable names that contain the type.
 
 | Entities | Naming | Preview |
 | ----------- | ----------- | ---------- |
