@@ -34,6 +34,9 @@ Footer (optional) is used to reference issues effected bt the code changes. For 
 # C++ Coding Standards Blue Waffle Empire
 ## Naming Style
 
+Avoid Hun-garian notation. 
+This means, we never want to use varaible names that contain the type.
+
 | Entities | Naming | Preview |
 | ----------- | ----------- | ---------- |
 | NameSpaces | UpperCamelCase | namespace `ExNamespace` |
@@ -56,7 +59,7 @@ prefer Tabs for indents
 
 ### **Braces**  
 
-With `if` statenebts and `for` loops we drop the brackets if it only has to execute 1 line of code or if it calls a method
+With `if` statements and `for` loops we drop the brackets if it only has to execute 1 line of code or if it calls a method
 ```c++
 if (true)
     ExecuteMethod();
@@ -123,7 +126,31 @@ ExNamespace::ExClass::ExMethod()
     } while (true);
 }
 ```
-### **Guarding if statements**  
+### **Regarding if statements**  
+
+Prefer default initialized variables that will be set in an if
+	
+Bad example:
+```c++
+int value;
+if(true)
+{
+    value = 1;
+}
+else
+{
+    value = 2
+}
+```
+Instead we prefer this:
+```c++
+int value{2};
+if(true)
+{
+    value = 1;
+}
+```
+
 
 Prefer using guarding `if` statements for readability
 
