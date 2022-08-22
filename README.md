@@ -244,15 +244,27 @@ const auto& data = exClass->GetData();
 auto* pTimer = new TimerClass();
 ```
     
-### Declarations
-Use Using over typedef!  
-Example:
+### using keyword
+
+ - **Never use `using namespace std`!** 
+ - Never use `using namespace` in a header file.
+ - Never use `using namespace` before any `#include`s. 
+ - Use `using` instead of typedef! 
 ```c++
 // bad example
 typedef int my_int;
 
 // good example
 using my_float = float;
+```
+ - Prefer specified using over namespace using. 
+```c++
+// bad example
+using namepace std::chrono;
+
+// good examples
+using std::chrono::high_resolution_clock;
+using std::chrono::duration;
 ```
 
 Nested Namespaces  
