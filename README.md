@@ -247,9 +247,9 @@ auto* pTimer = new TimerClass();
 ### using keyword
 
  - **Never use `using namespace std`!** 
- - Never use `using namespace` in a header file.
- - Never use `using namespace` before any `#include`s. 
- - Use `using` instead of typedef! 
+ - Never use `using namespace` in a header file. This can mess with code that includes the header file wich contains `using namespace`.
+ - Never use `using namespace` before any `#include`s. This can mess with the meaning of code in someone else's header.
+ - Use `using` instead of typedef! Modernized c++
 ```c++
 // bad example
 typedef int my_int;
@@ -257,11 +257,11 @@ typedef int my_int;
 // good example
 using my_float = float;
 ```
- - Prefer specified using over namespace using. 
+ - Prefer specified using over namespace using.
 ```c++
 // bad example
 using namepace std::chrono;
-
+	
 // good examples
 using std::chrono::high_resolution_clock;
 using std::chrono::duration;
